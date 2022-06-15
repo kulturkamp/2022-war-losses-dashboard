@@ -30,6 +30,16 @@ df_equipment_sum = df_equipment_daily.sum()
 
 df_equipment_last_day = df_equipment_daily.iloc[-1].copy()
 
+df_personnel = df_personnel.drop(['personnel*'], axis=1)
+df_personnel.date = pd.to_datetime(df_personnel.date)
+
+df_personnel_daily = df_personnel.copy().set_index(['date', 'day'])
+df_personnel_daily = df_personnel_daily.diff().fillna(df_personnel_daily).reset_index()
+
+df_personnel_last_day = df_personnel_daily.iloc[-1].copy()
+
+good_russians = int(df_personnel_daily.sum()['personnel'])
+
 cols = df_equipment_daily.columns[2:]
 
 date_latest = df_equipment_daily.iloc[-1]['date']
@@ -39,6 +49,16 @@ st.set_page_config(page_title='russian military losses', layout="wide")
 
 st.markdown("<h1 style='text-align: center; color: black;'>rUSSIAN INVASION OF UKRAINE</h1>", unsafe_allow_html=True)
 st.markdown("<h2 style='text-align: center; color: black;'>Day {}</h1>".format(day_latest), unsafe_allow_html=True)
+
+with st.container():
+    _, col111, col112, _ = st.columns([2, 1, 1, 2])
+
+    with col111:
+        col111.metric('Total good russians', good_russians, df_personnel_last_day['personnel'])
+
+    
+
+
 with st.container():
     page_cols = [*st.columns(len(cols)//2),
                  *st.columns(len(cols)//2)]
