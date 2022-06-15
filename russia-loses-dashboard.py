@@ -25,12 +25,15 @@ df_equipment = df_equipment.drop(to_drop, axis=1)
 df_equipment_daily = df_equipment.copy().set_index(['date', 'day'])
 df_equipment_daily = df_equipment_daily.diff().fillna(df_equipment_daily).fillna(0).reset_index()
 
+date_latest = df_equipment_daily.iloc[-1]['date']
+day_latest = df_equipment_daily.iloc[-1]['day']
+
 st.set_page_config(page_title='russian military losses', layout="wide")
 
 with st.container():
     _, col211, _ = st.columns([2, 1, 2])
     with col211:
-        st.markdown('## Loses by military unit')
+        st.markdown('## russian loses by military unit')
     
     _, col221, _ = st.columns([3, 1, 3])
     with col221:
@@ -66,6 +69,7 @@ with st.container():
     )
     fig.update_layout(
         xaxis=dict(
+            range=(df_equipment_daily.iloc[0]['date'], date_latest),
             rangeselector=dict(
                 buttons=list([
                     dict(count=1, label='last month', step='month', stepmode='backward'),
@@ -79,7 +83,8 @@ with st.container():
         xaxis2_rangeslider_thickness=0.05,
         xaxis2_type="date",
         showlegend=False,
-        height=900         
+        height=850         
     )
 
     st.plotly_chart(fig, use_container_width=True)
+    st.markdown('#### Use slider above to filter by date')
