@@ -25,10 +25,12 @@ df_equipment = df_equipment.drop(to_drop, axis=1)
 df_equipment_daily = df_equipment.copy().set_index(['date', 'day'])
 df_equipment_daily = df_equipment_daily.diff().fillna(df_equipment_daily).fillna(0).reset_index()
 
+st.set_page_config(page_title='russian military losses', layout="wide")
+
 with st.container():
     attribute_ = st.selectbox(
         label='Select attribute', 
-        options=df_equipment_daily.columns[2:], 
+        options=df_equipment_daily.columns[], 
         index=6
     )
 
@@ -73,7 +75,4 @@ fig.update_layout(
     height=1000         
 )
 
-
-
-st.set_page_config(page_title='russian military losses', layout="wide")
 st.plotly_chart(fig, use_container_width=True)
