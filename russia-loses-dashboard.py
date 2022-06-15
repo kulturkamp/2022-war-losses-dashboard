@@ -25,13 +25,18 @@ df_equipment = df_equipment.drop(to_drop, axis=1)
 df_equipment_daily = df_equipment.copy().set_index(['date', 'day'])
 df_equipment_daily = df_equipment_daily.diff().fillna(df_equipment_daily).fillna(0).reset_index()
 
-
+with st.container():
+    attribute_ = st.selectbox(
+        label='Select attribute', 
+        options=df_equipment_daily.columns[:2], 
+        index=6
+    )
 
 fig = make_subplots(2, 1, subplot_titles=['Total losses', 'Daily losses'], shared_xaxes=True)
 fig.add_trace(
     go.Scatter(
         x=df_equipment['date'],
-        y=df_equipment['tank'],
+        y=df_equipment[attribute_],
         mode='lines+markers',
         hovertemplate='%{x}<br />lost to this date: %{y} <extra></extra>',
         marker_color=clrs.qualitative.T10[1]
@@ -43,10 +48,10 @@ fig.add_trace(
 fig.add_trace(
     go.Bar(
         x=df_equipment_daily['date'], 
-        y=df_equipment_daily['tank'],
+        y=df_equipment_daily[attribute_],
         marker_color=clrs.qualitative.G10[1],
         hovertemplate='%{x}<br />lost: %{y} <extra></extra>',
-        text=df_equipment_daily['tank']
+        text=df_equipment_daily[attribute_]
     ),
     row=2,
     col=1
@@ -67,6 +72,8 @@ fig.update_layout(
     showlegend=False,
     height=1000         
 )
+
+
 
 st.set_page_config(page_title='russian military losses', layout="wide")
 st.plotly_chart(fig, use_container_width=True)
