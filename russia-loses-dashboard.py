@@ -67,12 +67,24 @@ with st.container():
         row=2,
         col=1
     )
+    fig.add_annotation(
+    text='Use slider above to slice by date',
+    xref='paper',
+    yref='paper',
+    x=0.05,
+    y=-0.2,
+    font=dict(
+        size=15
+    ),
+    showarrow=False,
+    
+)
+
     fig.update_layout(
         xaxis=dict(
-           # range=(df_equipment_daily.iloc[0]['date'], date_latest),
             rangeselector=dict(
                 buttons=list([
-                    dict(count=38, label='last month', step='day', stepmode='backward'),
+                    dict(count=37, label='last month', step='day', stepmode='backward'),
                     dict(count=13, label='last week', step='day', stepmode='backward'),
                     dict(label='all time', step='all')
                 ]),
@@ -81,7 +93,7 @@ with st.container():
         ),
         xaxis2_rangeslider_visible=True,
         xaxis2_rangeslider_thickness=0.05,
-        xaxis2_type="date",
+        xaxis2_type='date',
         showlegend=False,
         height=850         
     )
