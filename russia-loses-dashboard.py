@@ -30,7 +30,7 @@ st.set_page_config(page_title='russian military losses', layout="wide")
 with st.container():
     attribute_ = st.selectbox(
         label='Select attribute', 
-        options=df_equipment_daily.columns[], 
+        options=df_equipment_daily.columns[2:], 
         index=6
     )
 
