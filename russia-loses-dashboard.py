@@ -54,10 +54,10 @@ with st.container():
     _, col111, col112, _ = st.columns([2, 1, 1, 2])
 
     with col111:
-        col111.metric('Total good russians', good_russians, df_personnel_last_day['personnel'])
+        col111.metric('Total good russians', good_russians, int(df_personnel_last_day['personnel']))
 
     with col112:
-        col112.metric('Total military units lost', df_equipment_sum.drop('day').sum(), df_equipment_last_day.iloc[2:].sum())
+        col112.metric('Total military units lost', int(df_equipment_sum.drop('day').sum()), int(df_equipment_last_day.iloc[2:].sum()))
 
     
 
