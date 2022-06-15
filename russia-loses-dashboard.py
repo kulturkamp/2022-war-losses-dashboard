@@ -43,7 +43,7 @@ with st.container():
     for i, col in enumerate(page_cols):
         col.metric(cols[i], int(df_equipment_sum[cols[i]]), None)
 
-
+print(st.columns(len(cols)//2))
 
 
 
