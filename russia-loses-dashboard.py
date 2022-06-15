@@ -47,8 +47,8 @@ day_latest = df_equipment_daily.iloc[-1]['day']
 
 st.set_page_config(page_title='russian military losses', layout="wide")
 
-st.markdown("<h1 style='text-align: center; color: #FF9900;'>rUSSIAN INVASION OF UKRAINE</h1>", unsafe_allow_html=True)
-st.markdown("<h2 style='text-align: center; color: #FF9900;'>Day {}</h1>".format(day_latest), unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center; color: #FFA15A;'>rUSSIAN INVASION OF UKRAINE</h1>", unsafe_allow_html=True)
+st.markdown("<h2 style='text-align: center; color: #FFA15A;'>Day {}</h1>".format(day_latest), unsafe_allow_html=True)
 
 with st.container():
     _, col111, col112, _ = st.columns([2, 1, 1, 2])
@@ -75,7 +75,7 @@ print(st.columns(len(cols)//2))
 
 
 with st.container():
-    st.markdown("<h3 style='text-align: center; color: #FF9900;'>russian loses by military unit</h1>", unsafe_allow_html=True)
+    st.markdown("<h3 style='text-align: center; color: #FFA15A;'>russian loses by military unit</h1>", unsafe_allow_html=True)
     _, col221, _ = st.columns([3, 1, 3])
     with col221:
         attribute_ = st.selectbox(
