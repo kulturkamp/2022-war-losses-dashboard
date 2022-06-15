@@ -30,12 +30,12 @@ st.set_page_config(page_title='russian military losses', layout="wide")
 with st.container():
     _, col211, _ = st.columns([2, 1, 2])
     with col211:
-        st.markdown('## Loses by attribute')
+        st.markdown('## Loses by military unit')
     
     _, col221, _ = st.columns([3, 1, 3])
     with col221:
         attribute_ = st.selectbox(
-            label='Select attribute', 
+            label='Select unit', 
             options=df_equipment_daily.columns[2:], 
             index=6
         )
