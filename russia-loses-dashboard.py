@@ -18,7 +18,7 @@ df_equipment.date = pd.to_datetime(df_equipment.date)
 df_equipment.day = df_equipment.day.astype(int)
 
 to_sum = ['military auto', 'fuel tank', 'vehicles and fuel tanks']
-to_drop = to_sum + ['greatest losses direction']
+to_drop = to_sum + ['greatest losses direction', 'mobile SRBM system']
 df_equipment['military and supply vehicles'] = df_equipment[to_sum].sum(axis=1)
 df_equipment = df_equipment.drop(to_drop, axis=1)
 
