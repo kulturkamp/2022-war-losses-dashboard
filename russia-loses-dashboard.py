@@ -79,7 +79,7 @@ with st.container():
         xaxis2_rangeslider_thickness=0.05,
         xaxis2_type="date",
         showlegend=False,
-        height=1000         
+        height=900         
     )
 
     st.plotly_chart(fig, use_container_width=True)
