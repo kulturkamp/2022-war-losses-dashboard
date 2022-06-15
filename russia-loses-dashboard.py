@@ -1,3 +1,4 @@
+from pyparsing import col
 import streamlit as st
 import requests
 import pandas as pd
@@ -25,10 +26,23 @@ df_equipment = df_equipment.drop(to_drop, axis=1)
 df_equipment_daily = df_equipment.copy().set_index(['date', 'day'])
 df_equipment_daily = df_equipment_daily.diff().fillna(df_equipment_daily).fillna(0).reset_index()
 
+df_equipment_sum = df_equipment_daily.sum()
+
+cols = df_equipment_daily.columns[2:]
+
 date_latest = df_equipment_daily.iloc[-1]['date']
 day_latest = df_equipment_daily.iloc[-1]['day']
 
 st.set_page_config(page_title='russian military losses', layout="wide")
+
+with st.container():
+    page_cols = range(len(cols))
+    for i, col in enumerate(page_cols):
+        col.metric(cols[i], int(df_equipment_sum[cols[i]]))
+
+
+
+
 
 with st.container():
     _, col211, _ = st.columns([1.25, 1, 1.25])
@@ -39,7 +53,7 @@ with st.container():
     with col221:
         attribute_ = st.selectbox(
             label='Select unit', 
-            options=df_equipment_daily.columns[2:], 
+            options=cols, 
             index=6
         )
 
@@ -99,4 +113,3 @@ with st.container():
     )
     fig.update_xaxes(matches='x')
     st.plotly_chart(fig, use_container_width=True)
-    st.markdown('#### Use slider above to filter by date')
