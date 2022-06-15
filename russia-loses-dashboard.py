@@ -101,7 +101,7 @@ with st.container():
         go.Bar(
             x=df_equipment_daily['date'], 
             y=df_equipment_daily[attribute_],
-            marker_color=clrs.qualitative.G10[1],
+            marker_color=clrs.qualitative.Plotly[4],
             hovertemplate='%{x}<br />lost: %{y} <extra></extra>',
             text=df_equipment_daily[attribute_]
         ),
@@ -129,7 +129,7 @@ with st.container():
                     dict(count=13, label='last week', step='day', stepmode='backward'),
                     dict(label='all time', step='all')
                 ]),
-                bgcolor=clrs.qualitative.G10[2]
+                bgcolor=clrs.qualitative.Plotly[4]
             )
         ),
         xaxis2_rangeslider_visible=True,
