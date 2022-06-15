@@ -28,6 +28,8 @@ df_equipment_daily = df_equipment_daily.diff().fillna(df_equipment_daily).fillna
 
 df_equipment_sum = df_equipment_daily.sum()
 
+df_equipment_last_day = df_equipment_daily.iloc[-1].copy()
+
 cols = df_equipment_daily.columns[2:]
 
 date_latest = df_equipment_daily.iloc[-1]['date']
@@ -43,16 +45,13 @@ with st.container():
 
 
     for i, col in enumerate(page_cols):
-        col.metric(cols[i], int(df_equipment_sum[cols[i]]), None)
+        col.metric(cols[i], int(df_equipment_sum[cols[i]]), int(df_equipment_last_day[cols[i]]))
 
 print(st.columns(len(cols)//2))
 
 
 
 with st.container():
-    # _, col211, _ = st.columns([1.25, 1, 1.25])
-    # with col211:
-    #     st.markdown('### russian loses by military unit')
     st.markdown("<h3 style='text-align: center; color: black;'>russian loses by military unit</h1>", unsafe_allow_html=True)
     _, col221, _ = st.columns([3, 1, 3])
     with col221:
