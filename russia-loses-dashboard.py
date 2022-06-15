@@ -28,51 +28,58 @@ df_equipment_daily = df_equipment_daily.diff().fillna(df_equipment_daily).fillna
 st.set_page_config(page_title='russian military losses', layout="wide")
 
 with st.container():
-    attribute_ = st.selectbox(
-        label='Select attribute', 
-        options=df_equipment_daily.columns[2:], 
-        index=6
+    _, col211, _ = st.columns([2, 1, 1])
+    with col211:
+        st.markdown('## Loses by attribute')
+    
+    _, col221, _ = st.columns([4, 1, 4])
+    with col221:
+        attribute_ = st.selectbox(
+            label='Select attribute', 
+            options=df_equipment_daily.columns[2:], 
+            index=6
+        )
+
+    fig = make_subplots(2, 1, subplot_titles=['Total losses', 'Daily losses'], shared_xaxes=True, vertical_spacing = 0.1)
+    fig.add_trace(
+        go.Scatter(
+            x=df_equipment['date'],
+            y=df_equipment[attribute_],
+            mode='lines+markers',
+            hovertemplate='%{x}<br />lost to this date: %{y} <extra></extra>',
+            marker_color=clrs.qualitative.T10[1]
+            
+        ),
+        row=1, 
+        col=1
+    )
+    fig.add_trace(
+        go.Bar(
+            x=df_equipment_daily['date'], 
+            y=df_equipment_daily[attribute_],
+            marker_color=clrs.qualitative.G10[1],
+            hovertemplate='%{x}<br />lost: %{y} <extra></extra>',
+            text=df_equipment_daily[attribute_]
+        ),
+        row=2,
+        col=1
+    )
+    fig.update_layout(
+        xaxis=dict(
+            rangeselector=dict(
+                buttons=list([
+                    dict(count=1, label='last month', step='month', stepmode='backward'),
+                    dict(count=7, label='last week', step='day', stepmode='backward'),
+                    dict(label='all time', step='all')
+                ]),
+                bgcolor=clrs.qualitative.G10[2]
+            )
+        ),
+        xaxis2_rangeslider_visible=True,
+        xaxis2_rangeslider_thickness=0.05,
+        xaxis2_type="date",
+        showlegend=False,
+        height=1000         
     )
 
-fig = make_subplots(2, 1, subplot_titles=['Total losses', 'Daily losses'], shared_xaxes=True)
-fig.add_trace(
-    go.Scatter(
-        x=df_equipment['date'],
-        y=df_equipment[attribute_],
-        mode='lines+markers',
-        hovertemplate='%{x}<br />lost to this date: %{y} <extra></extra>',
-        marker_color=clrs.qualitative.T10[1]
-        
-    ),
-    row=1, 
-    col=1
-)
-fig.add_trace(
-    go.Bar(
-        x=df_equipment_daily['date'], 
-        y=df_equipment_daily[attribute_],
-        marker_color=clrs.qualitative.G10[1],
-        hovertemplate='%{x}<br />lost: %{y} <extra></extra>',
-        text=df_equipment_daily[attribute_]
-    ),
-    row=2,
-    col=1
-)
-fig.update_layout(
-    xaxis=dict(
-        rangeselector=dict(
-            buttons=list([
-                dict(count=1, label='last month', step='month', stepmode='backward'),
-                dict(count=7, label='last week', step='day', stepmode='backward'),
-                dict(label='all time', step='all')
-            ])
-        )
-    ),
-    xaxis2_rangeslider_visible=True,
-    xaxis2_rangeslider_thickness=0.05,
-    xaxis2_type="date",
-    showlegend=False,
-    height=1000         
-)
-
-st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig, use_container_width=True)
