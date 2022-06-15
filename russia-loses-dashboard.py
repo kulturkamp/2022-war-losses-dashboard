@@ -28,7 +28,7 @@ df_equipment_daily = df_equipment_daily.diff().fillna(df_equipment_daily).fillna
 with st.container():
     attribute_ = st.selectbox(
         label='Select attribute', 
-        options=df_equipment_daily.columns[:2], 
+        options=df_equipment_daily.columns[2:], 
         index=6
     )
 
