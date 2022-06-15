@@ -85,6 +85,6 @@ with st.container():
         showlegend=False,
         height=850         
     )
-
+    fig.update_xaxes(matches='x')
     st.plotly_chart(fig, use_container_width=True)
     st.markdown('#### Use slider above to filter by date')
