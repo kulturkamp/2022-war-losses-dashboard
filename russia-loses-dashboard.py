@@ -38,7 +38,7 @@ st.set_page_config(page_title='russian military losses', layout="wide")
 with st.container():
     page_cols = range(len(cols))
     for i, col in enumerate(page_cols):
-        col.metric(cols[i], int(df_equipment_sum[cols[i]]))
+        col.metric(cols[i], int(df_equipment_sum[cols[i]]), None)
 
 
 
