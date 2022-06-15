@@ -31,7 +31,7 @@ day_latest = df_equipment_daily.iloc[-1]['day']
 st.set_page_config(page_title='russian military losses', layout="wide")
 
 with st.container():
-    _, col211, _ = st.columns([2, 1, 2])
+    _, col211, _ = st.columns([1.5, 1, 1.5])
     with col211:
         st.markdown('## russian loses by military unit')
     
@@ -72,8 +72,8 @@ with st.container():
             range=(df_equipment_daily.iloc[0]['date'], date_latest),
             rangeselector=dict(
                 buttons=list([
-                    dict(count=1, label='last month', step='month', stepmode='backward'),
-                    dict(count=7, label='last week', step='day', stepmode='backward'),
+                    dict(count=38, label='last month', step='day', stepmode='backward'),
+                    dict(count=14, label='last week', step='day', stepmode='backward'),
                     dict(label='all time', step='all')
                 ]),
                 bgcolor=clrs.qualitative.G10[2]
