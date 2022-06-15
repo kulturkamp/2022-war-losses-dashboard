@@ -36,7 +36,8 @@ day_latest = df_equipment_daily.iloc[-1]['day']
 st.set_page_config(page_title='russian military losses', layout="wide")
 
 with st.container():
-    page_cols = [st.columns(len(cols)//2)] + [st.columns(len(cols)//2)]
+    page_cols = [st.columns(len(cols)//2),
+                 st.columns(len(cols)//2)]
 
 
     for i, col in enumerate(page_cols):
