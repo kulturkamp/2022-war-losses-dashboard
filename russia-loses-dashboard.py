@@ -64,10 +64,9 @@ fig.update_layout(
     xaxis2_rangeslider_visible=True,
     xaxis2_rangeslider_thickness=0.05,
     xaxis2_type="date",
-    paper_bgcolor='white',
     showlegend=False,
     height=1000         
 )
 
-
+st.set_page_config(page_title='russian military losses', layout="wide")
 st.plotly_chart(fig, use_container_width=True)
