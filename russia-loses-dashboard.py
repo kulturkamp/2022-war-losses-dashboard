@@ -75,7 +75,7 @@ print(st.columns(len(cols)//2))
 
 
 with st.container():
-    st.markdown("<h3 style='text-align: center; color: black;'>russian loses by military unit</h1>", unsafe_allow_html=True)
+    st.markdown("<h3 style='text-align: center; color: #FF990;'>russian loses by military unit</h1>", unsafe_allow_html=True)
     _, col221, _ = st.columns([3, 1, 3])
     with col221:
         attribute_ = st.selectbox(
@@ -109,7 +109,7 @@ with st.container():
         col=1
     )
     fig.add_annotation(
-    text='Use slider above to slice by date',
+    text='*Use slider above to slice by date',
     xref='paper',
     yref='paper',
     x=0.05,
