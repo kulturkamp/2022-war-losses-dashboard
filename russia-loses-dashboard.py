@@ -152,7 +152,7 @@ with st.container():
                     '''
                 )
         
-        col321 = st.columns([1, 3])
+        col321, _ = st.columns([1, 3])
         with col321:
             with st.expander('Acronyms'):
                 st.markdown(
