@@ -156,8 +156,8 @@ with st.container():
         with col321:
             with st.expander('Acronyms'):
                 st.markdown(
-                '''
-                - MRL - Multiple Rocket Launcher
-                - APC - Armored Personnel Carrier
-                '''
+                    '''
+                    - MRL - Multiple Rocket Launcher
+                    - APC - Armored Personnel Carrier
+                    '''
                 )
