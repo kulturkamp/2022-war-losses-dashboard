@@ -91,7 +91,7 @@ with st.container():
             y=df_equipment[attribute_],
             mode='lines+markers',
             hovertemplate='%{x}<br />lost to this date: %{y} <extra></extra>',
-            marker_color=clrs.qualitative.T10[1]
+            marker_color=clrs.qualitative.Plotly[4]
             
         ),
         row=1, 
@@ -141,11 +141,13 @@ with st.container():
 
 
     with st.container():
-        with st.expander('Credits and data sources'):
-            st.markdown(
-                '''
-                - Thanks to [Petro Ivaniuk](https://github.com/PetroIvaniuk) for data and inspiration
-                - [russian loses dataset on github](https://github.com/PetroIvaniuk/2022-Ukraine-Russia-War-Dataset) (json, updated daily)
-                - [russian loses dataset on kaggle](https://www.kaggle.com/datasets/piterfm/2022-ukraine-russian-war) (csv, updated daily)
-                '''
-            )
+        col311, _ = st.columns([2, 1])
+        with col311:
+            with st.expander('**Credits and data sources**'):
+                st.markdown(
+                    '''
+                    - Thanks to [Petro Ivaniuk](https://github.com/PetroIvaniuk) for data and inspiration
+                    - [russian loses dataset on github](https://github.com/PetroIvaniuk/2022-Ukraine-Russia-War-Dataset) (json, updated daily)
+                    - [russian loses dataset on kaggle](https://www.kaggle.com/datasets/piterfm/2022-ukraine-russian-war) (csv, updated daily)
+                    '''
+                )
