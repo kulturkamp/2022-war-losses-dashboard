@@ -143,11 +143,21 @@ with st.container():
     with st.container():
         col311, _ = st.columns([1, 3])
         with col311:
-            with st.expander(st.markdown('*Credits and data sources*')):
+            with st.expander('Credits and data sources'):
                 st.markdown(
                     '''
                     - Thanks to [Petro Ivaniuk](https://github.com/PetroIvaniuk) for data and inspiration
                     - [russian loses dataset on github](https://github.com/PetroIvaniuk/2022-Ukraine-Russia-War-Dataset) (json, updated daily)
                     - [russian loses dataset on kaggle](https://www.kaggle.com/datasets/piterfm/2022-ukraine-russian-war) (csv, updated daily)
                     '''
+                )
+        
+        col321 = st.columns([1, 3])
+        with col321:
+            with st.expander('Acronyms'):
+                st.markdown(
+                '''
+                - MRL - Multiple Rocket Launcher
+                - APC - Armored Personnel Carrier
+                '''
                 )
