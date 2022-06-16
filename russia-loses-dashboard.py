@@ -143,7 +143,18 @@ with st.container():
     with st.container():
         col311, _ = st.columns([1, 3])
         with col311:
-            with st.expander('*Credits and data sources*'):
+            #with st.expander('*Credits and data sources*'):
+            with st.markdown(
+                                """
+                            <style>
+                            .streamlit-expanderHeader {
+                                font-size: x-large;
+                            }
+                            Credits and data sources
+                            </style>
+                            """,
+                                unsafe_allow_html=True,
+                            ):
                 st.markdown(
                     '''
                     - Thanks to [Petro Ivaniuk](https://github.com/PetroIvaniuk) for data and inspiration
