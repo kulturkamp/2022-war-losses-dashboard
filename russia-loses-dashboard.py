@@ -70,7 +70,7 @@ with st.container():
     for i, col in enumerate(page_cols):
         col.metric(cols[i], int(df_equipment_sum[cols[i]]), int(df_equipment_last_day[cols[i]]))
 
-print(st.columns(len(cols)//2))
+#print(st.columns(len(cols)//2))
 
 
 
@@ -117,10 +117,8 @@ with st.container():
     font=dict(
         size=15
     ),
-    showarrow=False,
-    
-)
-
+    showarrow=False,    
+    )
     fig.update_layout(
         xaxis=dict(
             rangeselector=dict(
@@ -140,3 +138,14 @@ with st.container():
     )
     fig.update_xaxes(matches='x')
     st.plotly_chart(fig, use_container_width=True)
+
+
+    with st.container():
+        with st.expander('Credits and data sources'):
+            st.markdown(
+                '''
+                - Thanks to [Petro Ivaniuk](https://github.com/PetroIvaniuk) for data and inspiration
+                - [russian loses dataset on github](https://github.com/PetroIvaniuk/2022-Ukraine-Russia-War-Dataset) (json, updated daily)
+                - [russian loses dataset on kaggle](https://www.kaggle.com/datasets/piterfm/2022-ukraine-russian-war) (csv, updated daily)
+                '''
+            )
