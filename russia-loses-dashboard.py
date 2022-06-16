@@ -141,9 +141,9 @@ with st.container():
 
 
     with st.container():
-        col311, _ = st.columns([2, 1])
+        col311, _ = st.columns([1, 3])
         with col311:
-            with st.expander('**Credits and data sources**'):
+            with st.expander('*Credits and data sources*'):
                 st.markdown(
                     '''
                     - Thanks to [Petro Ivaniuk](https://github.com/PetroIvaniuk) for data and inspiration
