@@ -81,7 +81,7 @@ with st.container():
         attribute_ = st.selectbox(
             label='Select unit', 
             options=cols, 
-            index=1
+            index=2
         )
 
     fig = make_subplots(2, 1, subplot_titles=['Total losses', 'Daily losses'], shared_xaxes=True, vertical_spacing = 0.1)
