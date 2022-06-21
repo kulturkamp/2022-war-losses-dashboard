@@ -45,7 +45,7 @@ cols = df_equipment_daily.columns[2:]
 date_latest = df_equipment_daily.iloc[-1]['date']
 day_latest = df_equipment_daily.iloc[-1]['day']
 
-st.set_page_config(page_title='russian military losses', layout="wide")
+st.set_page_config(page_title='russian military loses', layout="wide")
 
 st.markdown("<h1 style='text-align: center; color: #FFA15A;'>rUSSIAN INVASION OF UKRAINE</h1>", unsafe_allow_html=True)
 st.markdown("<h2 style='text-align: center; color: #FFA15A;'>Day {}</h1>".format(day_latest), unsafe_allow_html=True)
