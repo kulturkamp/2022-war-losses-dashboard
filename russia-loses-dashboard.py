@@ -139,6 +139,47 @@ with st.container():
     fig.update_xaxes(matches='x')
     st.plotly_chart(fig, use_container_width=True)
 
+with st.container():
+    st.markdown("<h3 style='text-align: center; color: #FFA15A;'>russian loses of personnel</h1>", unsafe_allow_html=True)
+    fig = go.Figure()
+    fig.add_trace(
+        go.Bar(
+            x=df_personnel_daily['date'],
+            y=df_personnel_daily['personnel'],
+            marker_color=clrs.qualitative.Plotly[4],
+            hovertemplate='%{x}<br />lost: %{y} <extra></extra>',
+            text=df_personnel_daily['personnel']
+        )
+    )   
+    fig.add_trace(
+        go.Bar(
+            x=df_personnel_daily['date'],
+            y=df_personnel_daily['POW'],
+            marker_color=clrs.qualitative.Pastel1[4],
+            hovertemplate='%{x}<br />captured: %{y} <extra></extra>',
+        )
+    )
+    fig.update_layout(
+        barmode='stack',
+        xaxis=dict(
+            rangeselector=dict(
+                buttons=list([
+                    dict(count=31, label='last month', step='day', stepmode='backward'),
+                    dict(count=7, label='last week', step='day', stepmode='backward'),
+                    dict(label='all time', step='all')
+                ]),
+                bgcolor=clrs.qualitative.Plotly[4]
+            ),
+            rangeslider=dict(
+                visible=True,
+                thickness=0.05
+            ),
+            type='date'
+        ),
+        showlegend=False,
+        height=850         
+    )
+    st.plotly_chart(fig, use_container_width=True)
 
     with st.container():
         col311, _ = st.columns([1, 3])
