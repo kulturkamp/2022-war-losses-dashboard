@@ -147,8 +147,7 @@ with st.container():
             x=df_personnel_daily['date'],
             y=df_personnel_daily['personnel'],
             marker_color=clrs.qualitative.Plotly[4],
-            hovertemplate='%{x}<br />lost: %{y} <extra></extra>',
-            text=df_personnel_daily['personnel']
+            hovertemplate='%{x}<br />lost: %{y} <extra></extra>'
         )
     )   
     fig.add_trace(
@@ -156,7 +155,7 @@ with st.container():
             x=df_personnel_daily['date'],
             y=df_personnel_daily['POW'],
             marker_color=clrs.qualitative.Pastel1[4],
-            hovertemplate='%{x}<br />captured: %{y} <extra></extra>',
+            hovertemplate='%{x}<br />captured: %{y} <extra></extra>'
         )
     )
     fig.update_layout(
