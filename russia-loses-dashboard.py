@@ -120,8 +120,8 @@ with st.container():
         showarrow=False,    
     )
     fig.update_layout(
-        paper_bgcolor='rgba(0,0,0,0)',
-        plot_bgcolor='rgba(0,0,0,0)',
+        # paper_bgcolor='rgba(0,0,0,0)',
+        # plot_bgcolor='rgba(0,0,0,0)',
         xaxis=dict(
             rangeselector=dict(
                 buttons=list([
@@ -186,8 +186,8 @@ with st.container():
     )
     fig.update_layout(
         barmode='stack',
-        paper_bgcolor='rgba(0,0,0,0)',
-        plot_bgcolor='rgba(0,0,0,0)',
+        # paper_bgcolor='rgba(0,0,0,0)',
+        # plot_bgcolor='rgba(0,0,0,0)',
         xaxis=dict(
             rangeselector=dict(
                 buttons=list([
