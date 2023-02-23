@@ -120,8 +120,8 @@ with st.container():
         showarrow=False,    
     )
     fig.update_layout(
-        # paper_bgcolor='rgba(0,0,0,0)',
-        # plot_bgcolor='rgba(0,0,0,0)',
+        paper_bgcolor='rgba(0,0,0,0)',
+        plot_bgcolor='rgba(0,0,0,0)',
         xaxis=dict(
             rangeselector=dict(
                 buttons=list([
@@ -131,28 +131,26 @@ with st.container():
                 ]),
                 bgcolor=clrs.qualitative.Antique[9],
                 font=dict(
-                    # family='Aerial Black',
+                    family='Aerial Black',
                     color='white',
                 )
             ),
-            showgrid=False,
             tickfont=dict(
-                # family='Aerial Black',
+                family='Aerial Black',
             )
         ),
         yaxis=dict(
             fixedrange=True,
             tickfont=dict(
-                # family='Aerial Black',
+                family='Aerial Black',
             )
         ),
         yaxis2=dict(
             fixedrange=True,
             tickfont=dict(
-                # family='Aerial Black',
+                family='Aerial Black',
             )
         ),
-        xaxis2_showgrid=False,
         xaxis2_rangeslider_visible=True,
         xaxis2_rangeslider_thickness=0.05,
         xaxis2_type='date',
@@ -188,8 +186,8 @@ with st.container():
     )
     fig.update_layout(
         barmode='stack',
-        # paper_bgcolor='rgba(0,0,0,0)',
-        # plot_bgcolor='rgba(0,0,0,0)',
+        paper_bgcolor='rgba(0,0,0,0)',
+        plot_bgcolor='rgba(0,0,0,0)',
         xaxis=dict(
             rangeselector=dict(
                 buttons=list([
@@ -199,7 +197,7 @@ with st.container():
                 ]),
                 bgcolor=clrs.qualitative.Antique[9],
                 font=dict(
-                    # family='Aerial Black',
+                    family='Aerial Black',
                     color='white'
                 )
             ),
@@ -208,14 +206,14 @@ with st.container():
                 thickness=0.05
             ),
             tickfont=dict(
-                # family='Aerial Black',
+                family='Aerial Black',
             ),
             type='date'
         ),
         yaxis=dict(
             fixedrange=True,
             tickfont=dict(
-                # family='Aerial Black',
+                family='Aerial Black',
             )
         ),
         showlegend=False,
