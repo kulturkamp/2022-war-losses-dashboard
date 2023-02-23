@@ -135,6 +135,7 @@ with st.container():
                     color='white',
                 )
             ),
+            showgrid=False,
             tickfont=dict(
                 family='Aerial Black',
             )
@@ -151,6 +152,7 @@ with st.container():
                 family='Aerial Black',
             )
         ),
+        xaxis2_showgrid=False,
         xaxis2_rangeslider_visible=True,
         xaxis2_rangeslider_thickness=0.05,
         xaxis2_type='date',
