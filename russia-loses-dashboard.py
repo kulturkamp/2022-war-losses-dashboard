@@ -44,10 +44,10 @@ cols = df_equipment_daily.columns[2:]
 date_latest = df_equipment_daily.iloc[-1]['date']
 day_latest = df_equipment_daily.iloc[-1]['day']
 
-st.set_page_config(page_title='russian military loses', layout="wide")
+st.set_page_config(page_title='russian military loses', layout='wide')
 
-st.markdown("<h1 style='text-align: center; color: #FFA15A;'>rUSSIAN INVASION OF UKRAINE</h1>", unsafe_allow_html=True)
-st.markdown("<h2 style='text-align: center; color: #FFA15A;'>Day {}</h1>".format(day_latest), unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center; color: #8c785d;'>rUSSIAN INVASION OF UKRAINE</h1>", unsafe_allow_html=True)
+st.markdown("<h2 style='text-align: center; color: #8c785d;'>Day {}</h1>".format(day_latest), unsafe_allow_html=True)
 
 with st.container():
     _, col111, col112, _ = st.columns([2, 1, 1, 2])
@@ -74,7 +74,7 @@ with st.container():
 
 
 with st.container():
-    st.markdown("<h3 style='text-align: center; color: #FFA15A;'>russian loses by military unit</h1>", unsafe_allow_html=True)
+    st.markdown("<h3 style='text-align: center; color: #8c785d;'>russian loses by military unit</h1>", unsafe_allow_html=True)
     _, col221, _ = st.columns([3, 1, 3])
     with col221:
         attribute_ = st.selectbox(
@@ -88,9 +88,9 @@ with st.container():
         go.Scatter(
             x=df_equipment['date'],
             y=df_equipment[attribute_],
-            mode='lines+markers',
+            mode='lines',
             hovertemplate='%{x}<br />lost to this date: %{y} <extra></extra>',
-            marker_color=clrs.qualitative.Plotly[4]
+            marker_color=clrs.qualitative.Antique[9]
             
         ),
         row=1, 
@@ -100,9 +100,9 @@ with st.container():
         go.Bar(
             x=df_equipment_daily['date'], 
             y=df_equipment_daily[attribute_],
-            marker_color=clrs.qualitative.Plotly[4],
+            marker_color=clrs.qualitative.Antique[9],
             hovertemplate='%{x}<br />lost: %{y} <extra></extra>',
-            text=df_equipment_daily[attribute_]
+            # text=df_equipment_daily[attribute_]
         ),
         row=2,
         col=1
@@ -119,14 +119,19 @@ with st.container():
     showarrow=False,    
     )
     fig.update_layout(
+        paper_bgcolor='rgba(0,0,0,0)',
+        plot_bgcolor='rgba(0,0,0,0)',
         xaxis=dict(
             rangeselector=dict(
                 buttons=list([
                     dict(count=37, label='last month', step='day', stepmode='backward'),
-                    dict(count=13, label='last week', step='day', stepmode='backward'),
+                    dict(count=7, label='last week', step='day', stepmode='backward'),
                     dict(label='all time', step='all')
                 ]),
-                bgcolor=clrs.qualitative.Plotly[4]
+                bgcolor=clrs.qualitative.Antique[9],
+                font=dict(
+                    color='white'
+                )
             )
         ),
         xaxis2_rangeslider_visible=True,
@@ -139,13 +144,13 @@ with st.container():
     st.plotly_chart(fig, use_container_width=True)
 
 with st.container():
-    st.markdown("<h3 style='text-align: center; color: #FFA15A;'>russian loses of personnel</h1>", unsafe_allow_html=True)
+    st.markdown("<h3 style='text-align: center; color: #8c785d;'>russian loses of personnel</h1>", unsafe_allow_html=True)
     fig = go.Figure()
     fig.add_trace(
         go.Bar(
             x=df_personnel_daily['date'],
             y=df_personnel_daily['personnel'],
-            marker_color=clrs.qualitative.Plotly[4],
+            marker_color=clrs.qualitative.Antique[9],
             hovertemplate='%{x}<br />lost: %{y} <extra></extra>'
         )
     )   
@@ -153,7 +158,7 @@ with st.container():
         go.Bar(
             x=df_personnel_daily['date'],
             y=df_personnel_daily['POW'],
-            marker_color=clrs.qualitative.Pastel1[4],
+            marker_color=clrs.qualitative.Set2[6],
             hovertemplate='%{x}<br />captured: %{y} <extra></extra>'
         )
     )
@@ -166,7 +171,10 @@ with st.container():
                     dict(count=7, label='last week', step='day', stepmode='backward'),
                     dict(label='all time', step='all')
                 ]),
-                bgcolor=clrs.qualitative.Plotly[4]
+                bgcolor=clrs.qualitative.Antique[9],
+                font=dict(
+                    color='white'
+                )
             ),
             rangeslider=dict(
                 visible=True,
@@ -180,7 +188,7 @@ with st.container():
     st.plotly_chart(fig, use_container_width=True)
 
     with st.container():
-        col311, _ = st.columns([1, 3])
+        col311, _ = st.columns([2, 3])
         with col311:
             with st.expander('Credits and data sources'):
                 st.markdown(
@@ -191,7 +199,7 @@ with st.container():
                     '''
                 )
         
-        col321, _ = st.columns([1, 3])
+        col321, _ = st.columns([2, 3])
         with col321:
             with st.expander('Acronyms'):
                 st.markdown(
