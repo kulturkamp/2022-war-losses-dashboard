@@ -131,25 +131,25 @@ with st.container():
                 ]),
                 bgcolor=clrs.qualitative.Antique[9],
                 font=dict(
-                    family='Aerial Black',
+                    # family='Aerial Black',
                     color='white',
                 )
             ),
             showgrid=False,
             tickfont=dict(
-                family='Aerial Black',
+                # family='Aerial Black',
             )
         ),
         yaxis=dict(
             fixedrange=True,
             tickfont=dict(
-                family='Aerial Black',
+                # family='Aerial Black',
             )
         ),
         yaxis2=dict(
             fixedrange=True,
             tickfont=dict(
-                family='Aerial Black',
+                # family='Aerial Black',
             )
         ),
         xaxis2_showgrid=False,
@@ -199,7 +199,7 @@ with st.container():
                 ]),
                 bgcolor=clrs.qualitative.Antique[9],
                 font=dict(
-                    family='Aerial Black',
+                    # family='Aerial Black',
                     color='white'
                 )
             ),
@@ -208,14 +208,14 @@ with st.container():
                 thickness=0.05
             ),
             tickfont=dict(
-                family='Aerial Black',
+                # family='Aerial Black',
             ),
             type='date'
         ),
         yaxis=dict(
             fixedrange=True,
             tickfont=dict(
-                family='Aerial Black',
+                # family='Aerial Black',
             )
         ),
         showlegend=False,
