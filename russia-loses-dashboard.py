@@ -108,15 +108,16 @@ with st.container():
         col=1
     )
     fig.add_annotation(
-    text='*Use slider above to slice by date',
-    xref='paper',
-    yref='paper',
-    x=0.05,
-    y=-0.2,
-    font=dict(
-        size=15
-    ),
-    showarrow=False,    
+        text='*Use slider above to slice by date',
+        xref='paper',
+        yref='paper',
+        x=0.05,
+        y=-0.2,
+        font=dict(
+            size=15,
+            family='Aerial Black'
+        ),
+        showarrow=False,    
     )
     fig.update_layout(
         paper_bgcolor='rgba(0,0,0,0)',
@@ -130,8 +131,24 @@ with st.container():
                 ]),
                 bgcolor=clrs.qualitative.Antique[9],
                 font=dict(
-                    color='white'
+                    family='Aerial Black',
+                    color='white',
                 )
+            ),
+            tickfont=dict(
+                family='Aerial Black',
+            )
+        ),
+        yaxis=dict(
+            fixedrange=True,
+            tickfont=dict(
+                family='Aerial Black',
+            )
+        ),
+        yaxis2=dict(
+            fixedrange=True,
+            tickfont=dict(
+                family='Aerial Black',
             )
         ),
         xaxis2_rangeslider_visible=True,
@@ -139,6 +156,11 @@ with st.container():
         xaxis2_type='date',
         showlegend=False,
         height=850         
+    )
+    fig.update_annotations(
+        font=dict(
+            family='Aerial Black'
+        )
     )
     fig.update_xaxes(matches='x')
     st.plotly_chart(fig, use_container_width=True)
@@ -164,6 +186,8 @@ with st.container():
     )
     fig.update_layout(
         barmode='stack',
+        paper_bgcolor='rgba(0,0,0,0)',
+        plot_bgcolor='rgba(0,0,0,0)',
         xaxis=dict(
             rangeselector=dict(
                 buttons=list([
@@ -173,6 +197,7 @@ with st.container():
                 ]),
                 bgcolor=clrs.qualitative.Antique[9],
                 font=dict(
+                    family='Aerial Black',
                     color='white'
                 )
             ),
@@ -180,13 +205,26 @@ with st.container():
                 visible=True,
                 thickness=0.05
             ),
+            tickfont=dict(
+                family='Aerial Black',
+            ),
             type='date'
+        ),
+        yaxis=dict(
+            fixedrange=True,
+            tickfont=dict(
+                family='Aerial Black',
+            )
         ),
         showlegend=False,
         height=850         
     )
     st.plotly_chart(fig, use_container_width=True)
-
+    st.markdown(
+        '''
+        Also check out [Ukraine Air-alerts dashboard](https://kulturkamp-air-alerts-dashboard-air-alerts-dashboard-24cjge.streamlit.app/)
+        '''
+    )
     with st.container():
         col311, _ = st.columns([2, 3])
         with col311:
