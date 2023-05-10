@@ -44,7 +44,7 @@ cols = df_equipment_daily.columns[2:]
 date_latest = df_equipment_daily.iloc[-1]['date']
 day_latest = df_equipment_daily.iloc[-1]['day']
 
-st.set_page_config(page_title='russian military loses', layout='wide')
+st.set_page_config(page_title='russian military losses', layout='wide')
 
 st.markdown("<h1 style='text-align: center; color: #8c785d;'>rUSSIAN INVASION OF UKRAINE</h1>", unsafe_allow_html=True)
 st.markdown("<h2 style='text-align: center; color: #8c785d;'>Day {}</h1>".format(day_latest), unsafe_allow_html=True)
@@ -74,7 +74,7 @@ with st.container():
 
 
 with st.container():
-    st.markdown("<h3 style='text-align: center; color: #8c785d;'>russian loses by military unit</h1>", unsafe_allow_html=True)
+    st.markdown("<h3 style='text-align: center; color: #8c785d;'>russian losses by military unit</h1>", unsafe_allow_html=True)
     _, col221, _ = st.columns([3, 1, 3])
     with col221:
         attribute_ = st.selectbox(
@@ -166,7 +166,7 @@ with st.container():
     st.plotly_chart(fig, use_container_width=True)
 
 with st.container():
-    st.markdown("<h3 style='text-align: center; color: #8c785d;'>russian loses of personnel</h1>", unsafe_allow_html=True)
+    st.markdown("<h3 style='text-align: center; color: #8c785d;'>russian losses of personnel</h1>", unsafe_allow_html=True)
     fig = go.Figure()
     fig.add_trace(
         go.Bar(
@@ -232,8 +232,8 @@ with st.container():
                 st.markdown(
                     '''
                     - Thanks to [Petro Ivaniuk](https://github.com/PetroIvaniuk) for data and inspiration
-                    - [russian loses dataset on github](https://github.com/PetroIvaniuk/2022-Ukraine-Russia-War-Dataset) (json, updated daily)
-                    - [russian loses dataset on kaggle](https://www.kaggle.com/datasets/piterfm/2022-ukraine-russian-war) (csv, updated daily)
+                    - [russian losses dataset on github](https://github.com/PetroIvaniuk/2022-Ukraine-Russia-War-Dataset) (json, updated daily)
+                    - [russian losses dataset on kaggle](https://www.kaggle.com/datasets/piterfm/2022-ukraine-russian-war) (csv, updated daily)
                     '''
                 )
         
