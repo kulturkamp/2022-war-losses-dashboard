@@ -222,7 +222,7 @@ with st.container():
     st.plotly_chart(fig, use_container_width=True)
     st.markdown(
         '''
-        Also check out [Ukraine Air-alerts dashboard](https://kulturkamp-air-alerts-dashboard-air-alerts-dashboard-24cjge.streamlit.app/)
+        Also check out [Ukraine Air-alerts dashboard](https://air-alerts-dashbrd.streamlit.app/)
         '''
     )
     with st.container():
