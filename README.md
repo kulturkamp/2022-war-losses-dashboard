@@ -1,6 +1,6 @@
 # 2022-war-loses-dashboard
 
-[Dashboard](https://share.streamlit.io/kulturkamp/2022-war-loses-dashboard/russia-loses-dashboard.py) made with `streamlit.io`
+[Dashboard](https://war-losses-russia-dashbrd.streamlit.app/) made with `streamlit.io`
 
 Data source:  
 - [russian loses dataset on github](https://github.com/PetroIvaniuk/2022-Ukraine-Russia-War-Dataset) (json, updated daily)
