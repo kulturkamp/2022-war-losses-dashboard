@@ -25,7 +25,7 @@ df_equipment = df_equipment.drop(to_drop, axis=1)
 df_equipment_daily = df_equipment.copy().set_index(['date', 'day'])
 df_equipment_daily = df_equipment_daily.diff().fillna(df_equipment_daily).fillna(0).reset_index()
 
-df_equipment_sum = df_equipment_daily.sum()
+df_equipment_sum = df_equipment_daily.iloc[:,2:].sum()
 
 df_equipment_last_day = df_equipment_daily.iloc[-1].copy()
 
@@ -37,7 +37,7 @@ df_personnel_daily = df_personnel_daily.diff().fillna(df_personnel_daily).reset_
 
 df_personnel_last_day = df_personnel_daily.iloc[-1].copy()
 
-good_russians = int(df_personnel_daily.sum()['personnel'])
+good_russians = int(df_personnel_daily['personnel'].sum())
 
 cols = df_equipment_daily.columns[2:]
 
@@ -56,7 +56,7 @@ with st.container():
         col111.metric('Total good russians', good_russians, int(df_personnel_last_day['personnel']))
 
     with col112:
-        col112.metric('Total military units lost', int(df_equipment_sum.drop('day').sum()), int(df_equipment_last_day.iloc[2:].sum()))
+        col112.metric('Total military units lost', int(df_equipment_sum.sum()), int(df_equipment_last_day.iloc[2:].sum()))
 
     
 
