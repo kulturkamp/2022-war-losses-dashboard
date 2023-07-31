@@ -1,4 +1,4 @@
-# 2022-war-loses-dashboard
+# 2022-war-losses-dashboard
 
 [Dashboard](https://war-losses-russia-dashbrd.streamlit.app/) made with `streamlit.io`
 
